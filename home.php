@@ -9,16 +9,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
 <meta name="description" content="Credible sources">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="keywords" content="nagaiah, nagaiah.com, credible sources, people, products, services, search index, open source">
+<meta name="keywords" content="mjr, mjr.in, nagaiah, nagaiah.com, credible sources, people, products, services, search index, open source">
 <meta name="mobile-web-app-capable" content="yes">
 		
 <title>Credible sources</title>
 
 <center><b>
 <code style="font:28px Calibri, Verdana, Arial;color:#222222">Credible sources</code> 
-</b></center>
-<center><b>
-<code style="font:13px Calibri, Verdana, Arial;color:#545454">Last Modified: Wed, 22 Jul 2015 08:20:01 GMT</code> 
 </b></center>
 
 <center> 
@@ -31,7 +28,9 @@
 </center>
 
 <?php
+/*
 $time_start = microtime(true); 
+*/
 
 /**
  * 
@@ -116,9 +115,9 @@ function get_urls($q,$p,$s) {
   echo $twit_hash;echo $wiki_hash;echo $fb_hash;
 
   //$fd = fopen("d5.txt","r") or die($php_errormsg);  
-  $fd = gzopen64("d59.txt.gz","r") or die($php_errormsg);  
+  $fd = gzopen("d.txt.gz","r") or die($php_errormsg);  
 //  if (fseek($fd,$s,SEEK_SET) === -1) die($php_errormsg);
-  if (gzseek64($fd,$s,SEEK_SET) === -1) die($php_errormsg);
+  if (gzseek($fd,$s,SEEK_SET) === -1) die($php_errormsg);
   $cnt=0; $tags = array();
 
 	while (!feof($fd))
@@ -145,7 +144,7 @@ function get_urls($q,$p,$s) {
                               else 
                               {
                                       unset($mem);
-                                      return (round(gztell64($fd)));
+                                      return (round(gztell($fd)));
 //                                      return (round(ftell($fd)));
                               }
                       }
@@ -161,7 +160,7 @@ function get_urls($q,$p,$s) {
                               else 
                               {
                                       unset($mem);
-                                      return (round(gztell64($fd)));
+                                      return (round(gztell($fd)));
 //                                      return (round(ftell($fd)));
                               }
                       }
@@ -181,7 +180,7 @@ function get_urls($q,$p,$s) {
                   else 
                   {
                           unset($mem);
-                          return (round(gztell64($fd)));
+                          return (round(gztell($fd)));
 //                          return (round(ftell($fd)));
                   }
           }
@@ -224,18 +223,23 @@ print("<p><div align=\"center\">$en</div></p>");
 
 print("<center>");
 print("<code style=\"font:13px Calibri, Verdana, Arial;color:#545454\">"); 
-print("Not better than <a href=\"https://www.google.com/#q=$q&safe=off\">Google </a> and <a href=\"https://www.bing.com/search?q=$q\">Bing</a><br>");
-print("Please <a href=\"mailto:admin@nagaiah.com?Subject=Credible\">let us know</a>");
+print("<a href=\"https://www.google.com/#q=$q&safe=off\">Google </a> || <a href=\"https://www.bing.com/search?q=$q\">Bing</a><br>");
+echo "<hr>"; echo "<center>";echo "<br>"; echo "</center>";
+//print("<a href=\"mailto:admin@nagaiah.com?Subject=Credible sources\">Customer service</a>");
+print("<a href=\"home.php\">Home</a>");
 print("</code>");
 print("</center>");
-echo "<hr>"; echo "<center>";echo "<br>"; echo "</center>";
+/*
 $time_end = microtime(true);
 $execution_time = ($time_end - $time_start)/60;
 echo '<center><b></b></center> '.$execution_time.' Mins';
+*/
 ?>
 
 <center>
-<a href="index.php" target="_top">Credible solutions</a>
+<a href="mailto:admin@nagaiah.com">Customer service</a>
+<br>
+<a href="submit.php" target="_top">Submit Your Favorite URL</a>
 <div align="center"><?php echo gmdate('D, d M Y H:i:s T', time());?>
 </center>
 
