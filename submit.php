@@ -49,6 +49,7 @@
 <div id="myid" style="display: none;">
 <input type="submit" value="Submit">
 </div>
+<p></p>
 </form> 
 </center>
 
@@ -91,7 +92,8 @@ print("<center>");
 print("<code style=\"font:13px Calibri, Verdana, Arial;color:#545454\">");
 echo "<center>"; echo "We will shortly include ".$qq; echo " in our search results"; echo "</center>";
 echo "<hr>"; echo "<center>";echo "<br>"; echo "</center>";
-print("<a href=\"home.php\">Home</a>");
+print("<a href=\"home.php\">Home</a><br>");
+print("<a href=\"mailto:admin@nagaiah.com?Subject=Credible sources\">Customer service</a>");
 print("</code>");
 print("</center>");
 ?>

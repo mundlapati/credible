@@ -15,13 +15,17 @@
 <title>Credible sources</title>
 
 <center><b>
-<code style="font:28px Calibri, Verdana, Arial;color:#222222">Credible sources</code> 
+<span class="headlogo"><a href="http://mjr.in/" class="headlogo">Credible sources</a></span
+</b></center>
+
+<center><b>
+<code style="font:13px Calibri, Verdana, Arial;color:#009544"><a href="submit.php">Submit Your Favorite URL</a></code> 
 </b></center>
 
 <center> 
 <form accept-charset="UTF-8" method="GET" action="home.php"> 
 <p class="inp"> 
-<input name="q" type="text" maxlength="255" autofocus required autocapitalize="off" autocorrect="off" placeholder="site:apple.com iphone"> 
+<input name="q" type="text" maxlength="255" autofocus required autocapitalize="off" autocorrect="off"> 
 </p>
 <input type="submit" value="Search"> 
 </form> 
@@ -105,14 +109,6 @@ function get_urls($q,$p,$s) {
         {
                 $k = 0;
         }
-
-  $wiki_tag = "https://en.wikipedia.org/wiki?search=".$q;
-  $fb_tag = "https://facebook.com/search/str/%23".$q."/keywords_top";
-  $twit_tag = "https://twitter.com/search?q=%23".$q;
-  $wiki_hash="<a href=\"".$wiki_tag."\"><img src=_Wikipedia.png></a>";
-  $twit_hash="<a href=\"".$twit_tag."\"><img src=_twitter.png></a>";
-  $fb_hash="<a href=\"".$fb_tag."\"><img src=_facebook.png></a>";
-  echo $twit_hash;echo $wiki_hash;echo $fb_hash;
 
   //$fd = fopen("d5.txt","r") or die($php_errormsg);  
   $fd = gzopen("d.txt.gz","r") or die($php_errormsg);  
@@ -226,7 +222,7 @@ print("<code style=\"font:13px Calibri, Verdana, Arial;color:#545454\">");
 print("<a href=\"https://www.google.com/#q=$q&safe=off\">Google </a> || <a href=\"https://www.bing.com/search?q=$q\">Bing</a><br>");
 echo "<hr>"; echo "<center>";echo "<br>"; echo "</center>";
 //print("<a href=\"mailto:admin@nagaiah.com?Subject=Credible sources\">Customer service</a>");
-print("<a href=\"home.php\">Home</a>");
+//print("<a href=\"home.php\">Home</a>");
 print("</code>");
 print("</center>");
 /*
@@ -238,9 +234,15 @@ echo '<center><b></b></center> '.$execution_time.' Mins';
 
 <center>
 <a href="mailto:admin@nagaiah.com">Customer service</a>
-<br>
-<a href="submit.php" target="_top">Submit Your Favorite URL</a>
-<div align="center"><?php echo gmdate('D, d M Y H:i:s T', time());?>
 </center>
-
+<?php
+  $wiki_tag = "https://en.wikipedia.org/wiki?search=".$q;
+  $fb_tag = "https://facebook.com/search/str/%23".$q."/keywords_top";
+  $twit_tag = "https://twitter.com/search?q=%23".$q;
+  $wiki_hash="<a href=\"".$wiki_tag."\"><img src=_Wikipedia.png></a>";
+  $twit_hash="<a href=\"".$twit_tag."\"><img src=_twitter.png></a>";
+  $fb_hash="<a href=\"".$fb_tag."\"><img src=_facebook.png></a>";
+  echo $twit_hash;echo $wiki_hash;echo $fb_hash;
+  echo "<br>Updated " . date("Y-m-d") . "<br>";
+?>
 </body></html> 
