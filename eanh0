@@ -1,0 +1,11 @@
+How To Build And Run Google Like Search Engine At Your Home
+
+Download domain names from https://www.verisigninc.com/en_US/channel-resources/domain-registry-products/zone-file-information/index.xhtml
+
+tail -n+1 DOWNLOADED_URLS.TXT | parallel -I@ -j4 -k sh -c "echo @;curl -m10 --compressed -L -so - @ | awk -O -v IGNORECASE=1 -v RS='</title' 'RT{gsub(/.*<title[^>]*>/,\"\"); {print;exit;} }'; echo @;" >> OUTPUT.TXT;
+uniq -ic OUTPUT.TXT | sort -nrs -T /tmp > PAGE_RANKED.TXT
+
+Upload PAGE_RANKED.TXT and home.php files to your web hosting service provider.
+
+Demo is running here http://mjr.in
+
